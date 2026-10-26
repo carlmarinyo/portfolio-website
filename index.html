@@ -1,0 +1,784 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Carl Mari&ntilde;o - Developer. Portfolio showcasing selected projects, skills, and professional background." />
+  <meta name="theme-color" content="#F5F3EE" />
+  <title>Carl Mari&ntilde;o - Portfolio</title>
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        var theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#171A17' : '#F5F3EE';
+      } catch (error) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="site-header" id="top">
+    <div class="nav-brand">
+      <a href="#top" class="brand-name" id="nav-brand-link">Carl Mari&ntilde;o</a>
+      <span class="brand-role">Full Stack Developer</span>
+    </div>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+      <svg class="theme-icon theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg class="theme-icon theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ol class="nav-list">
+        <li><a href="#hero" class="nav-link" id="nav-home"><span class="nav-index" aria-hidden="true">01</span>Home</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-projects"><span class="nav-index" aria-hidden="true">02</span>Projects</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about"><span class="nav-index" aria-hidden="true">03</span>About</a></li>
+        <li><a href="#skills" class="nav-link" id="nav-skills"><span class="nav-index" aria-hidden="true">04</span>Skills</a></li>
+        <li><a href="#certifications" class="nav-link" id="nav-certs"><span class="nav-index" aria-hidden="true">05</span>Certs</a></li>
+        <li><a href="#education" class="nav-link" id="nav-education"><span class="nav-index" aria-hidden="true">06</span>Education</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact"><span class="nav-index" aria-hidden="true">07</span>Contact</a></li>
+      </ol>
+      <div class="nav-meta">
+        <span class="nav-location">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><circle cx="5" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 10C5 10 1 6.5 1 4a4 4 0 0 1 8 0c0 2.5-4 6-4 6Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+          Manila, Philippines
+        </span>
+        <a href="https://github.com/carlreyes" target="_blank" rel="noopener noreferrer" class="nav-gh-link" id="nav-github-link" aria-label="GitHub Profile">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404 11.5 11.5 0 0 1 3.004.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.479 5.921.43.372.824 1.102.824 2.222v3.293c0 .32.192.694.8.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="section-hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-index" aria-hidden="true">01 /</div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">THE PORTFOLIO</p>
+        <h1 class="hero-headline" id="hero-heading">
+          Building<br/>
+          <em>Things That</em><br/>
+          Matter.
+        </h1>
+        <div class="hero-meta">
+          <p class="hero-intro">
+            Hi &mdash; I am <strong>Carl Mari&ntilde;o</strong>, a full-stack developer and BS Information Technology student at FEU Institute of Technology. I build web and mobile applications, with a focus on backend development, database design, and practical software solutions.
+          </p>
+          <p class="hero-location">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><circle cx="5" cy="4" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 10C5 10 1 6.5 1 4a4 4 0 0 1 8 0c0 2.5-4 6-4 6Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+            Manila, Philippines
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" id="hero-cta-work">Explore my work</a>
+          <a href="#contact" class="btn btn-secondary" id="hero-cta-contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="deco-line deco-line-v"></div>
+        <div class="deco-label">EST. 2023</div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK -->
+    <section class="section-projects" id="projects" aria-labelledby="projects-heading">
+      <div class="section-header">
+        <span class="section-index" aria-hidden="true">02 /</span>
+        <div class="section-title-group">
+          <h2 class="section-label" id="projects-heading">SELECTED WORK</h2>
+          <p class="section-subtitle">Built deliberately &mdash; quality over quantity.</p>
+        </div>
+        <!-- Category Filter Tabs -->
+        <div class="project-filters" role="tablist" aria-label="Filter projects by category">
+          <button class="filter-btn filter-btn-active" id="filter-all" role="tab" aria-selected="true" data-filter="all">
+            All <span class="filter-count">1</span>
+          </button>
+          <button class="filter-btn" id="filter-web" role="tab" aria-selected="false" data-filter="web">
+            Web <span class="filter-count">1</span>
+          </button>
+          <button class="filter-btn" id="filter-mobile" role="tab" aria-selected="false" data-filter="mobile">
+            Mobile <span class="filter-count">&mdash;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project list -->
+      <div class="work-list" id="work-list">
+
+        <!-- -- PROJECT 001 (Web) ------------------------------------ -->
+        <article class="work-item" data-category="web" aria-label="Featured project" id="work-item-1">
+          <div class="work-meta-col">
+            <div class="work-number-wrap">
+              <span class="work-number" aria-hidden="true">001</span>
+              <span class="work-category-tag">Web</span>
+            </div>
+            <p class="work-year">2024</p>
+          </div>
+
+          <div class="work-body-col">
+            <div class="work-title-row">
+              <h3 class="work-title">Safezone [Web]</h3>
+              <div class="work-links" aria-label="Project links">
+                <a href="#" class="work-link-btn" id="proj1-live" target="_blank" rel="noopener noreferrer">
+                  Live
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </a>
+                <a href="#" class="work-link-btn work-link-secondary" id="proj1-github" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Role / contribution -->
+            <div class="work-role">
+              <span class="work-role-label">My role</span>
+              <p class="work-role-text">
+                System Architect & Core Developer&mdash; contributed to system architecture, database design, and implementation of core features for a disaster incident reporting and response platform.
+              </p>
+            </div>
+
+            <p class="work-description">
+              A web platform designed for the Santa Maria, Bulacan MDRRMO to manage incident reports, coordinate emergency responders, and share operational updates. Features configurable incident reporting, geospatial barangay mapping, responder tracking, and post-operation reporting workflows.
+            </p>
+
+            <!-- Video preview -->
+            <div class="work-visual work-visual-video" id="proj1-preview" aria-label="Project preview video">
+            
+              <video
+                class="work-video"
+                id="proj1-video"
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Safezone Web - Demo Video"
+              >
+                <source src="videos/Web_Demo.mp4" type="video/mp4" />
+              </video>
+              <!-- Fallback / overlay shown when no video is loaded -->
+              <div class="work-video-overlay" aria-hidden="true">
+                <div class="work-visual-grid"></div>
+                <div class="work-play-btn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="currentColor"/>
+                  </svg>
+                  <span>Preview</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Features accordion -->
+            <div class="work-features" id="proj1-features">
+              <button class="work-features-trigger" aria-expanded="false" aria-controls="proj1-features-body" id="proj1-features-btn">
+                <span class="work-features-label">Features</span>
+                <span class="work-features-icon" aria-hidden="true">
+                  <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+              <div class="work-features-body" id="proj1-features-body" hidden>
+                <ol class="work-features-list" aria-label="Project features">
+                  <li>OAuth login with Google and GitHub &mdash; no password required</li>
+                  <li>Real-time notifications via WebSockets for project updates</li>
+                  <li>Project board with drag-and-drop task management</li>
+                  <li>Role-based access control &mdash; owner, contributor, viewer</li>
+                  <li>REST API documented with Swagger / OpenAPI</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="work-stack-row">
+              <span class="work-stack-label">Stack</span>
+              <ul class="project-tags" aria-label="Technologies used">
+                <li class="tag"><img src="https://cdn.simpleicons.org/react/4A6B50" class="tag-icon" alt="" aria-hidden="true">React</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/nodedotjs/4A6B50" class="tag-icon" alt="" aria-hidden="true">Node.js</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/postgresql/4A6B50" class="tag-icon" alt="" aria-hidden="true">Express</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/express/4A6B50" class="tag-icon" alt="" aria-hidden="true">PostgreSQL</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/docker/4A6B50" class="tag-icon" alt="" aria-hidden="true">Qwen 3.8 Vision Model</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/react/4A6B50" class="tag-icon" alt="" aria-hidden="true">Firebase</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/react/4A6B50" class="tag-icon" alt="" aria-hidden="true">Redis</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="tag-icon" alt="" aria-hidden="true">Mapbox</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <hr class="work-divider" aria-hidden="true" />
+
+        <!-- -- PROJECT 002 (Mobile &mdash; In Progress) ------------------ -->
+        <article class="work-item" data-category="mobile" aria-label="Mobile project" id="work-item-2">
+          <div class="work-meta-col">
+            <div class="work-number-wrap">
+              <span class="work-number" aria-hidden="true">002</span>
+              <span class="work-category-tag">Mobile</span>
+            </div>
+            <p class="work-year">2025</p>
+          </div>
+
+          <div class="work-body-col">
+            <div class="work-title-row">
+              <h3 class="work-title">Safezone [Mobile]</h3>
+              <div class="work-links" aria-label="Project links">
+                <a href="#" class="work-link-btn" id="proj2-live" target="_blank" rel="noopener noreferrer">
+                  Live
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </a>
+                <a href="#" class="work-link-btn work-link-secondary" id="proj2-github" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Role / contribution &mdash; sole developer -->
+            <div class="work-role work-role-solo">
+              <span class="work-role-label">My role</span>
+              <p class="work-role-text">
+                Sole Mobile Developer &mdash; independently designed and implemented the SafeZone mobile application for residents and emergency responders.
+              </p>
+            </div>
+
+            <p class="work-description">
+              A cross-platform disaster response application built for the Santa Maria, Bulacan MDRRMO. Residents can submit incident reports, request emergency assistance, and receive announcements, while responders can participate in operations, share live situation updates, submit post-operation reports, and coordinate field activities.
+            </p>
+
+            <div class="work-visual work-visual-video" id="proj2-preview" aria-label="Mobile project preview video">
+              <video
+                class="work-video"
+                id="proj2-video"
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Safezone Mobile - Demo Video"
+              >
+                <source src="videos/Mobile_Demo.mp4" type="video/mp4" />
+              </video>
+              <div class="work-video-overlay" aria-hidden="true">
+                <div class="work-visual-grid"></div>
+                <div class="work-play-btn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="currentColor"/>
+                  </svg>
+                  <span>Preview</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Features accordion -->
+            <div class="work-features" id="proj2-features">
+              <button class="work-features-trigger" aria-expanded="false" aria-controls="proj2-features-body" id="proj2-features-btn">
+                <span class="work-features-label">Features</span>
+                <span class="work-features-icon" aria-hidden="true">
+                  <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 6h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+              <div class="work-features-body" id="proj2-features-body" hidden>
+                <ol class="work-features-list" aria-label="Project features">
+                  <li>Expense logging with custom categories and emoji icons</li>
+                  <li>Monthly budget limits per category with visual progress bars</li>
+                  <li>Interactive spending charts &mdash; bar, pie, and trend line</li>
+                  <li>Offline-first with AsyncStorage and automatic Firebase sync</li>
+                  <li>Push notifications for budget limit warnings</li>
+                  <li>Multi-currency support with live exchange rates</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="work-stack-row">
+              <span class="work-stack-label">Stack</span>
+              <ul class="project-tags" aria-label="Technologies used">
+                <li class="tag"><img src="https://cdn.simpleicons.org/react/4A6B50" class="tag-icon" alt="" aria-hidden="true">React Native</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/expo/4A6B50" class="tag-icon" alt="" aria-hidden="true">Expo</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="tag-icon" alt="" aria-hidden="true">Firebase</li>
+                <li class="tag"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="tag-icon" alt="" aria-hidden="true">Mapbox</li>
+
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+
+    <!-- ABOUT -->
+
+    <section class="section-about" id="about" aria-labelledby="about-heading">
+      <div class="section-header">
+        <span class="section-index" aria-hidden="true">03 /</span>
+        <div class="section-title-group">
+          <h2 class="section-label" id="about-heading">THE PERSON</h2>
+          <p class="section-subtitle">A little about me.</p>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p class="about-text">
+            I am <strong>Carl Mari&ntilde;o</strong>, a BS Information Technology student at FEU Institute of Technology with a focus on web and mobile development. I enjoy building practical software, exploring system architecture, and designing database structures that support real-world applications.
+          </p>
+          <p class="about-text">
+            I like working across different parts of a system, from planning data models and backend workflows to implementing application features. Through projects like SafeZone, I've gained experience translating complex requirements into functional software while collaborating with a team and taking ownership of technical decisions.
+          </p>
+
+          <div class="about-quick-stats" aria-label="Quick statistics">
+            <div class="stat-item">
+              <span class="stat-value">2</span>
+              <span class="stat-label">Projects built</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">6</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">2027</span>
+              <span class="stat-label">Expected graduation</span>
+            </div>
+          </div>
+        </div>
+        <aside class="about-sidebar">
+          <figure class="about-portrait">
+            <div class="about-portrait-frame">
+              <img
+                class="about-portrait-image"
+                src="images/profile.webp?v=20261026"
+                alt="Portrait of Carl Mari&ntilde;o"
+                width="560"
+                height="700"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <figcaption>Based in Manila, Philippines</figcaption>
+          </figure>
+          <div class="sidebar-block">
+            <p class="sidebar-label">CURRENTLY</p>
+            <p class="sidebar-value">Polishing and improving Safezone, a disaster incident reporting and response platform.</p>
+          </div>
+          <div class="sidebar-block">
+            <p class="sidebar-label">STUDYING AT</p>
+            <p class="sidebar-value">FEU Institute of Technology</p>
+          </div>
+          <div class="sidebar-block">
+            <p class="sidebar-label">INTERESTS</p>
+            <p class="sidebar-value">Full-stack development, mobile applications, system design</p>
+          </div>
+          <div class="sidebar-block">
+            <p class="sidebar-label">OPEN TO</p>
+            <p class="sidebar-value">Internships, freelance, collaboration</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section-skills" id="skills" aria-labelledby="skills-heading">
+      <div class="section-header">
+        <span class="section-index" aria-hidden="true">04 /</span>
+        <div class="section-title-group">
+          <h2 class="section-label" id="skills-heading">THE TOOLBOX</h2>
+          <p class="section-subtitle">Languages, frameworks, and tools in my stack.</p>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <p class="skill-group-index" aria-hidden="true">01</p>
+          <h3 class="skill-group-name">Frontend</h3>
+          <ul class="skill-list" aria-label="Frontend skills">
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/html5/4A6B50" class="skill-icon" alt="" aria-hidden="true">HTML5</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/css3/4A6B50" class="skill-icon" alt="" aria-hidden="true">CSS3</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/javascript/4A6B50" class="skill-icon" alt="" aria-hidden="true">JavaScript (ES6+)</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/html5/4A6B50" class="skill-icon" alt="" aria-hidden="true">TypeScript</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/react/4A6B50" class="skill-icon" alt="" aria-hidden="true">React</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/react/4A6B50" class="skill-icon" alt="" aria-hidden="true">React Native</li>
+
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-index" aria-hidden="true">02</p>
+          <h3 class="skill-group-name">Backend</h3>
+          <ul class="skill-list" aria-label="Backend skills">
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/nodedotjs/4A6B50" class="skill-icon" alt="" aria-hidden="true">Node.js</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/express/4A6B50" class="skill-icon" alt="" aria-hidden="true">Express.js</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/openapiinitiative/4A6B50" class="skill-icon" alt="" aria-hidden="true">REST APIs</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/python/4A6B50" class="skill-icon" alt="" aria-hidden="true">Authentication & Authorization</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/nodedotjs/4A6B50" class="skill-icon" alt="" aria-hidden="true">API Integration</li>
+
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-index" aria-hidden="true">03</p>
+          <h3 class="skill-group-name">Databases and Storage</h3>
+          <ul class="skill-list" aria-label="Database skills">
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/postgresql/4A6B50" class="skill-icon" alt="" aria-hidden="true">PostgreSQL</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/mysql/4A6B50" class="skill-icon" alt="" aria-hidden="true">Supabase</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="skill-icon" alt="" aria-hidden="true">SQL</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/mongodb/4A6B50" class="skill-icon" alt="" aria-hidden="true">Database Design</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="skill-icon" alt="" aria-hidden="true">Redis</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="skill-icon" alt="" aria-hidden="true">Cloudinary</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-index" aria-hidden="true">04</p>
+          <h3 class="skill-group-name">Cloud and Deployment</h3>
+          <ul class="skill-list" aria-label="Cloud skills">
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/vercel/4A6B50" class="skill-icon" alt="" aria-hidden="true">Vercel</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/railway/4A6B50" class="skill-icon" alt="" aria-hidden="true">Render</li>
+            <li class="skill-item skill-learning"><img src="https://cdn.simpleicons.org/amazonaws/4A6B50" class="skill-icon" alt="" aria-hidden="true">Firebase</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/firebase/4A6B50" class="skill-icon" alt="" aria-hidden="true">Cloudflare</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-index" aria-hidden="true">05</p>
+          <h3 class="skill-group-name">Mobile</h3>
+          <ul class="skill-list" aria-label="Mobile development skills">
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/react/4A6B50" class="skill-icon" alt="" aria-hidden="true">React Native</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/expo/4A6B50" class="skill-icon" alt="" aria-hidden="true">Expo</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/typescript/4A6B50" class="skill-icon" alt="" aria-hidden="true">TypeScript</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/typescript/4A6B50" class="skill-icon" alt="" aria-hidden="true">Firebase Cloud Messaging</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/typescript/4A6B50" class="skill-icon" alt="" aria-hidden="true">Geolocation & GPS</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-index" aria-hidden="true">06</p>
+          <h3 class="skill-group-name">Tools and Environments</h3>
+          <ul class="skill-list" aria-label="Development tools">
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/git/4A6B50" class="skill-icon" alt="" aria-hidden="true">Git &amp; GitHub</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/visualstudiocode/4A6B50" class="skill-icon" alt="" aria-hidden="true">VS Code</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/docker/4A6B50" class="skill-icon" alt="" aria-hidden="true">Postman</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/figma/4A6B50" class="skill-icon" alt="" aria-hidden="true">Figma</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/postman/4A6B50" class="skill-icon" alt="" aria-hidden="true">GeoJSON</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/postman/4A6B50" class="skill-icon" alt="" aria-hidden="true">Groq / Qwen</li>
+            <li class="skill-item"><img src="https://cdn.simpleicons.org/postman/4A6B50" class="skill-icon" alt="" aria-hidden="true">Resend</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section-certs" id="certifications" aria-labelledby="certs-heading">
+      <div class="section-header">
+        <span class="section-index" aria-hidden="true">05 /</span>
+        <div class="section-title-group">
+          <h2 class="section-label" id="certs-heading">CONTINUED LEARNING</h2>
+          <p class="section-subtitle">Professional certifications and technical coursework across networking, software development, databases, and project management.</p>
+        </div>
+      </div>
+      <!--
+        CERTS: To add your certificate file, drop it in the /certs folder and
+        set the data-cert-file attribute on the View button to match the filename.
+        Supports PDF and images (JPG, PNG, WEBP).
+        Example: data-cert-file="certs/my-cert.pdf"
+        If no file is uploaded yet, remove data-cert-file and the button shows as "Soon".
+      -->
+      <div class="certs-list" role="list">
+        <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Cisco</p>
+            <p class="cert-name">CCNA: Enterprise Networking, Security, and Automation</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2026</span>
+            <button class="cert-link" id="cert1-link"
+              data-cert-file="certs/enterprisenetworking.pdf"
+              data-cert-title="CCNA: Enterprise Networking, Security, and Automation"
+              data-cert-issuer="Cisco"
+              aria-label="View CCNA Enterprise Networking, Security, and Automation certificate">
+              View
+            </button>
+          </div>
+        </div>
+        <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Cisco</p>
+            <p class="cert-name">DevNet Associate</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2026</span>
+            <button class="cert-link" id="cert2-link"
+              data-cert-file="certs/devnet.pdf"
+              data-cert-title="DevNet Associate"
+              data-cert-issuer="Cisco"
+              aria-label="View DevNet Associate certificate">
+              View
+            </button>
+          </div>
+        </div>
+        <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Project Management Institute</p>
+            <p class="cert-name">PMI Project Management Ready™</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2026</span>
+            <button class="cert-link" id="cert3-link"
+              data-cert-file="certs/pmi.pdf"
+              data-cert-title="PMI Project Management Ready™"
+              data-cert-issuer="Project Management Institute"
+              aria-label="View PMI Project Management Ready certificate">
+              View
+            </button>
+          </div>
+        </div>
+        <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Cisco</p>
+            <p class="cert-name">CCNA: Switching, Routing, and Wireless Essentials</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2025</span>
+            <button class="cert-link" id="cert4-link"
+              data-cert-file="certs/switching.pdf"
+              data-cert-title="CCNA: Switching, Routing, and Wireless Essentials"
+              data-cert-issuer="Cisco"
+              aria-label="View CCNA Switching, Routing, and Wireless Essentials certificate">
+              View
+            </button>
+          </div>
+        </div>
+        <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Certiport</p>
+            <p class="cert-name">IT Specialist — Python</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2025</span>
+            <button class="cert-link" id="cert5-link"
+              data-cert-file="certs/python.pdf"
+              data-cert-title="IT Specialist — Python"
+              data-cert-issuer="Certiport"
+              aria-label="View IT Specialist Python certificate">
+              View
+            </button>
+          </div>
+        </div>
+        <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Cisco</p>
+            <p class="cert-name">Cisco Certified Support Technician Networking</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2025</span>
+            <button class="cert-link" id="cert6-link"
+              data-cert-file="certs/ccstn.pdf"
+              data-cert-title="Cisco Certified Support Technician Networking"
+              data-cert-issuer="Cisco"
+              aria-label="View Cisco Certified Support Technician Networking certificate">
+              View
+            </button>
+          </div>
+        </div>
+         <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Cisco</p>
+            <p class="cert-name">CCNA: Introduction to Networks</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2025</span>
+            <button class="cert-link" id="cert7-link"
+              data-cert-file="certs/introduction.pdf"
+              data-cert-title="CCNA: Introduction to Networks"
+              data-cert-issuer="Cisco"
+              aria-label="View CCNA Introduction to Networks certificate">
+              View
+            </button>
+          </div>
+        </div>
+         <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Certiport</p>
+            <p class="cert-name">IT Specialist - Databases</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2024</span>
+            <button class="cert-link" id="cert8-link"
+              data-cert-file="certs/databases.pdf"
+              data-cert-title="IT Specialist — Databases"
+              data-cert-issuer="Certiport"
+              aria-label="View IT Specialist Databases certificate">
+              View
+            </button>
+          </div>
+        </div>
+         <div class="cert-item" role="listitem">
+          <div class="cert-left">
+            <p class="cert-issuer">Codecademy</p>
+            <p class="cert-name">Learn JavaScript Course</p>
+          </div>
+          <div class="cert-right">
+            <span class="cert-year">2022</span>
+            <button class="cert-link" id="cert9-link"
+              data-cert-file="certs/javascript.pdf"
+              data-cert-title="Learn JavaScript Course"
+              data-cert-issuer="Codecademy"
+              aria-label="View Learn JavaScript Course certificate">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION AND EXPERIENCE -->
+    <section class="section-education" id="education" aria-labelledby="education-heading">
+      <div class="section-header">
+        <span class="section-index" aria-hidden="true">06 /</span>
+        <div class="section-title-group">
+          <h2 class="section-label" id="education-heading">FOUNDATIONS</h2>
+          <p class="section-subtitle">Where I am learning and what I have done.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-group">
+          <p class="timeline-group-label">Education</p>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title">Map&uacute;a University</h3>
+                <span class="timeline-period">2022 â€&ldquo; Present</span>
+              </div>
+              <p class="timeline-subtitle">BS Computer Science</p>
+              <p class="timeline-detail">Relevant coursework: Data Structures, Web Systems, Mobile Development, Software Engineering, Database Management.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot timeline-dot-muted" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title">San Beda College Alabang</h3>
+                <span class="timeline-period">2020 â€&ldquo; 2022</span>
+              </div>
+              <p class="timeline-subtitle">Senior High School &mdash; STEM Track</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-group">
+          <p class="timeline-group-label">Experience</p>
+          <div class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-title">DevCollab &mdash; Academic Team Project</h3>
+                <span class="timeline-period">2024</span>
+              </div>
+              <p class="timeline-subtitle">Backend Developer</p>
+              <p class="timeline-detail">Designed and implemented the REST API, PostgreSQL schema, and JWT authentication for a team collaboration platform. Built with Node.js and Express, deployed via Docker on Railway.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-contact" id="contact" aria-labelledby="contact-heading">
+      <div class="section-header">
+        <span class="section-index" aria-hidden="true">07 /</span>
+        <div class="section-title-group">
+          <h2 class="section-label" id="contact-heading">THE NEXT BUILD</h2>
+          <p class="section-subtitle">Let us work together.</p>
+        </div>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-statement">
+          <p class="contact-big-text">
+            Open to projects,<br/>
+            <em>collaboration,</em><br/>
+            and conversation.
+          </p>
+          <a href="mailto:carl.reyes@email.com" class="btn btn-primary btn-contact" id="contact-email-btn">
+            Send me an email
+            <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <div class="contact-details">
+          <div class="contact-item">
+            <p class="contact-label">Email</p>
+            <a href="mailto:carl.reyes@email.com" class="contact-value" id="contact-email-link">marinojerome2@email.com</a>
+          </div>
+          <div class="contact-item">
+            <p class="contact-label">Location</p>
+            <span class="contact-value">Manila, Philippines</span>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/carlmarinyo" target="_blank" rel="noopener noreferrer" class="social-link" id="contact-github">
+              GitHub
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/carlmarinyo/" target="_blank" rel="noopener noreferrer" class="social-link" id="contact-linkedin">
+              LinkedIn
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <p class="footer-brand">Carl Mari&ntilde;o</p>
+      <p class="footer-copy">Copyright <span id="footer-year"></span> &mdash; Designed and built by Carl Mari&ntilde;o.</p>
+      <a href="#top" class="footer-top-link" id="footer-back-top" aria-label="Back to top">
+        Back to top
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M10 8L6 4L2 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- CERT MODAL -->
+  <div class="cert-modal-backdrop" id="cert-modal" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title" hidden>
+    <div class="cert-modal-card">
+      <div class="cert-modal-header">
+        <div class="cert-modal-meta">
+          <span class="cert-modal-issuer" id="cert-modal-issuer"></span>
+          <h2 class="cert-modal-title" id="cert-modal-title"></h2>
+        </div>
+        <div class="cert-modal-actions">
+          <a class="cert-modal-open" id="cert-modal-open" target="_blank" rel="noopener">
+            Open PDF
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M8 2h4v4M12 2L6.5 7.5M11 8v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="cert-modal-download btn btn-secondary" id="cert-modal-download" download>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v8M3 7l4 4 4-4M1 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download
+          </a>
+          <button class="cert-modal-close" id="cert-modal-close" aria-label="Close certificate preview">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="cert-modal-body" id="cert-modal-body">
+        <!-- iframe or img injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
