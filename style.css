@@ -880,7 +880,7 @@ section {
   border-radius: 0 1px 1px 0;
 }
 
-.work-role-solo {
+.work-role-accent {
   border-left-color: var(--c-accent);
   background-color: var(--c-accent-pale);
 }
@@ -897,7 +897,7 @@ section {
   padding-top: 0.1em;
 }
 
-.work-role-solo .work-role-label {
+.work-role-accent .work-role-label {
   color: var(--c-accent-dark);
 }
 
@@ -907,7 +907,7 @@ section {
   line-height: 1.55;
 }
 
-.work-role-solo .work-role-text {
+.work-role-accent .work-role-text {
   color: var(--c-accent-dark);
   font-weight: 500;
 }
@@ -1319,7 +1319,38 @@ section {
 
 .cert-item:hover { background-color: var(--c-bg-alt); }
 
-.cert-left { flex: 1; }
+.cert-left {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: var(--sp-4);
+  align-items: center;
+}
+
+.cert-brand {
+  grid-row: 1 / span 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--c-line);
+  background-color: var(--c-surface);
+}
+
+.cert-brand img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.cert-brand-text {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--c-accent-dark);
+  letter-spacing: 0.04em;
+}
 
 .cert-issuer {
   font-family: var(--f-mono);
@@ -1444,6 +1475,29 @@ section {
   gap: var(--sp-4);
   margin-bottom: var(--sp-1);
   flex-wrap: wrap;
+}
+
+.timeline-school {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.timeline-school-logo {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid var(--c-line);
+  background-color: var(--c-surface);
+}
+
+.timeline-school-logo img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 .timeline-title {
